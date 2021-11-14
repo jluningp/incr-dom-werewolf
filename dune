@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (modes js)
+ (preprocess (pps ppx_jane))
+ (libraries core_kernel cohttp-lwt-jsoo incr_dom))
