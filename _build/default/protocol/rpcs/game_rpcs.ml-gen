@@ -1,0 +1,2 @@
+(** @canonical Game_rpcs.Rpcs *)
+module Rpcs = Game_rpcs__Rpcs

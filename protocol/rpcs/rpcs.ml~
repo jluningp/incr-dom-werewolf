@@ -1,0 +1,6 @@
+module Get_state = struct
+  module Query = Username
+  module Response = Game_state
+
+  let name = "get-state"
+end

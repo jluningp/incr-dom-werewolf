@@ -1,0 +1,15 @@
+opam-version: "2.0"
+name: "game_types"
+version: "0.1"
+synopsis: "Game types used by server and client"
+description: """
+Game types used by server and client
+"""
+maintainer: "Jeanne"
+authors: "Jeanne"
+license: ""
+homepage: ""
+bug-reports: ""
+dev-repo: ""
+depends: [ "ocaml" "ocamlfind" ]
+build: ["dune" "build" "-p" name "-j" jobs]

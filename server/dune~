@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (preprocess (pps ppx_jane))
+ (libraries core_kernel cohttp-async http_rpc))

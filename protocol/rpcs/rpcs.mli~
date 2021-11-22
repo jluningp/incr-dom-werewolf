@@ -1,0 +1,2 @@
+module Get_state :
+  Http_rpc.Rpc.S with module Query = Username and module Response = Game_state

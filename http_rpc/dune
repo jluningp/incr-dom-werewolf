@@ -1,0 +1,6 @@
+
+(library
+(public_name http_rpc)	
+(name http_rpc)
+(preprocess (pps ppx_jane js_of_ocaml-ppx))
+(libraries core_kernel async_kernel uri js_of_ocaml))

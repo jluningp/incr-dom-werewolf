@@ -1,0 +1,38 @@
+open Core_kernel
+open Async_kernel
+
+module type S = sig
+  module Query : sig
+    type t [@@deriving sexp]
+  end
+
+  module Response : sig
+    type t [@@deriving sexp]
+  end
+
+  val name : string
+end
+
+module Conn : sig
+  module Client : sig
+    type t
+
+    val create : path:string -> t
+  end
+
+  module Server : sig
+    type t
+
+    val create : unit -> t
+
+    val get_response : t -> Uri.t -> string option
+  end
+end
+
+module Make (Rpc : S) : sig
+  val dispatch :
+    Conn.Client.t -> Rpc.Query.t -> Rpc.Response.t Or_error.t Deferred.t
+
+  val register_implementation :
+    Conn.Server.t -> f:(Rpc.Query.t -> Rpc.Response.t) -> unit
+end

@@ -1,0 +1,5 @@
+(** @canonical Game_types.Card *)
+module Card = Game_types__Card
+
+(** @canonical Game_types.Username *)
+module Username = Game_types__Username

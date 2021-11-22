@@ -1,0 +1,6 @@
+
+(library
+(public_name game_state)	
+(name game_state)
+(preprocess (pps ppx_jane))
+(libraries core_kernel))

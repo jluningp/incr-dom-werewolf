@@ -1,0 +1,36 @@
+open! Core_kernel
+open! Async_kernel
+open Incr_dom
+
+module Model = struct
+  type t = { username : Username.t option; state : Game_state.t option }
+
+  let initial = { username = None; state = None }
+
+  let cutoff = phys_equal
+end
+
+module State = struct
+  type t = Http_rpc.Conn.Client.t
+end
+
+module Action = struct
+  type t = Set_state of Game_state.t [@@deriving sexp]
+end
+
+let on_startup ~schedule_action model =
+  let conn = Http_rpc.Conn.Client.create ~path:"" in
+  every' (Time_ns.Span.of_ms 300.) (fun () ->
+      let%map state = Game_rpcs.Rpcs.Get_state.dispatch model.username in
+      schedule_action (Action.Set_state state));
+  conn
+
+let apply_action action model ~schedule_action:_ =
+  match action with
+  | Action.Set_state game_state -> { model with state = Some game_state }
+
+let create model ~old_model:_ ~inject:_ =
+  let open Incr.Let_syntax in
+  let%map model = model in
+  let view = Vdom.Node.text model in
+  Component.create ~apply_action model view

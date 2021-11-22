@@ -1,0 +1,2 @@
+(** @canonical Http_rpc.Rpc *)
+module Rpc = Http_rpc__Rpc

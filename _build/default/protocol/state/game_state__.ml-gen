@@ -1,0 +1,11 @@
+(** @canonical Game_state.Night_actions *)
+module Night_actions = Game_state__Night_actions
+
+(** @canonical Game_state.Night_phase *)
+module Night_phase = Game_state__Night_phase
+
+(** @canonical Game_state.Phase *)
+module Phase = Game_state__Phase
+
+(** @canonical Game_state.Results *)
+module Results = Game_state__Results

@@ -1,0 +1,15 @@
+opam-version: "2.0"
+name: "http_rpc"
+version: "0.1"
+synopsis: "Async-RPC-like library for http requests"
+description: """
+Async-RPC-like library for http requests
+"""
+maintainer: "Jeanne"
+authors: "Jeanne"
+license: ""
+homepage: ""
+bug-reports: ""
+dev-repo: ""
+depends: [ "ocaml" "ocamlfind" ]
+build: ["dune" "build" "-p" name "-j" jobs]

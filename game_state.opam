@@ -1,0 +1,15 @@
+opam-version: "2.0"
+name: "game_state"
+version: "0.1"
+synopsis: "Game state that the server sends to the client"
+description: """
+Game state that the server sends to the client
+"""
+maintainer: "Jeanne"
+authors: "Jeanne"
+license: ""
+homepage: ""
+bug-reports: ""
+dev-repo: ""
+depends: [ "ocaml" "ocamlfind" ]
+build: ["dune" "build" "-p" name "-j" jobs]

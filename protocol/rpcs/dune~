@@ -1,0 +1,5 @@
+(library
+(public_name game_rpcs)	
+(name game_rpcs)
+(preprocess (pps ppx_jane))
+(libraries core_kernel game_types))

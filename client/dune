@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (modes js)
+ (preprocess (pps ppx_jane js_of_ocaml-ppx))
+ (libraries core_kernel  incr_dom http_rpc game_rpcs game_types))

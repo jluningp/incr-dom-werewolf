@@ -1,0 +1,13 @@
+open Game_types
+
+module Robber : sig
+  type t = { robbed : Username.t; saw : Card.t }
+end
+
+module Seer : sig
+  type t = {
+    saw : [ `Center_cards of Card.t * Card.t | `User of Username.t * Card.t ];
+  }
+end
+
+type t = Robber of Robber.t | Seer of Seer.t
